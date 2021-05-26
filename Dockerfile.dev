@@ -1,0 +1,15 @@
+FROM debian:testing-slim
+
+EXPOSE 8000 9929 9230
+
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
+    apt update && \
+    apt install -y nodejs npm build-essential libvips-dev
+
+RUN npm install -g gatsby-cli
+
+WORKDIR /app
+COPY ./package.json .
+RUN npm install
+COPY . .
+CMD ["gatsby", "develop", "-H", "0.0.0.0"]
