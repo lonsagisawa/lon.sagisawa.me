@@ -1,0 +1,43 @@
+---
+import { Image, Picture } from "@astrojs/image/components"
+import logoBlack from "../assets/logo_black.png"
+import logoWhite from "../assets/logo_white.png"
+---
+
+<header>
+  <div
+    class="container mx-4 lg:mx-8 my-2 flex flex-row justify-start items-center gap-4 min-h-16"
+  >
+    <a href="/" rel="prefetch">
+      <Picture
+        src={logoBlack}
+        widths={[64, 96, 128, 256]}
+        sizes="64px"
+        formats={["avif", "webp"]}
+        alt=""
+        class="block dark:hidden"
+      />
+      <Picture
+        src={logoWhite}
+        widths={[64, 96, 128, 256]}
+        sizes="64px"
+        formats={["avif", "webp"]}
+        alt=""
+        class="hidden dark:block"
+      />
+    </a>
+    <a href="/" rel="prefetch"
+      ><h1
+        class="font-heading font-900 text-2xl text-black dark:text-white hidden md:block"
+      >
+        Lon Sagisawa
+      </h1></a
+    >
+  </div>
+</header>
+
+<style>
+  header {
+    border-top: 0.5rem solid #f4d059;
+  }
+</style>

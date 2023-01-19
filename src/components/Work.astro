@@ -1,0 +1,75 @@
+---
+import Card from "./Card.astro"
+import Pill from "./Pill.astro"
+---
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+  <Card
+    title="lon.sagisawa.me (2023)"
+    href="https://github.com/lonsagisawa/lon.sagisawa.me"
+    target="_blank"
+  >
+    <div class="text-sm mb-1">
+      <Pill bgColor="#ff5d01" textColor="white">Astro</Pill>
+      <Pill bgColor="black" textColor="white">UnoCSS</Pill>
+      <Pill bgColor="#003cbe" textColor="white">Contentful</Pill>
+    </div>
+    <p class="text">今ご覧いただいている個人サイト兼ポートフォリオです。</p>
+  </Card>
+  <Card title="STREAM@S" href="https://stream.kitahina.co" target="_blank">
+    <div class="text-sm mb-1">
+      <Pill bgColor="black" textColor="white">Next</Pill>
+      <Pill bgColor="#38bdf8" textColor="black">Tailwind</Pill>
+      <Pill bgColor="#12124b" textColor="white">Deno</Pill>
+    </div>
+    <p>
+      アイドルマスターの楽曲を簡単にさがして、プラットフォームを気にせずシェアできるWebアプリです。
+    </p>
+  </Card>
+  <Card title="kitahina.co" href="https://kitahina.co" target="_blank">
+    <div class="text-sm mb-1">
+      <Pill bgColor="#ff5d01" textColor="white">Astro</Pill>
+      <Pill bgColor="#fcb32c" textColor="black">MDX</Pill>
+    </div>
+    <p>私のアイドルマスター関連の活動をまとめるサイトです。</p>
+  </Card>
+  <Card
+    title="lon.sagisawa.me (2020)"
+    href="https://github.com/lonsagisawa/lon.sagisawa.me_2020"
+    target="_blank"
+  >
+    <div class="text-sm mb-1">
+      <Pill bgColor="#663399" textColor="white">Gatsby</Pill>
+      <Pill bgColor="#D26AC2" textColor="white">Emotion</Pill>
+      <Pill bgColor="#003cbe" textColor="white">Contentful</Pill>
+    </div>
+    <p>以前の個人サイトです。</p>
+  </Card>
+  <Card
+    title="Stardust"
+    href="https://github.com/lonsagisawa/ghost-theme-stardust"
+    target="_blank"
+  >
+    <div class="text-sm mb-1">
+      <Pill bgColor="#f0772b" textColor="white">Handlebars</Pill>
+      <Pill bgColor="#712cf9" textColor="white">Bootstrap</Pill>
+    </div>
+    <p>
+      Ghost用のテーマです。現在のGhostはヘッドレスCMSになっていますが、当時はミニマルなブログシステムでした。
+    </p>
+  </Card>
+  <Card
+    title="アイドルマスターシリーズ SKK辞書"
+    href="https://kitahina.co/dict"
+    target="_blank"
+  >
+    <div class="text-sm mb-1">
+      <Pill bgColor="black" textColor="white">SKK辞書</Pill>
+      <Pill bgColor="black" textColor="white">bash</Pill>
+      <Pill bgColor="black" textColor="white">sed</Pill>
+    </div>
+    <p>
+      アイドルマスターシリーズに関する語句を収録した、各種SKK実装用の追加辞書です。SKKをお使いの多くのプロデューサーさんにご愛用いただいています。
+    </p>
+  </Card>
+</div>

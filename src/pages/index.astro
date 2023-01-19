@@ -1,0 +1,76 @@
+---
+import { Picture } from "@astrojs/image/components"
+import Layout from "../layouts/Layout.astro"
+import Work from "../components/Work.astro"
+import Card from "../components/Card.astro"
+import { contentfulClient, Post } from "../lib/contentful"
+import dayjs from "dayjs"
+
+const latestEntry = await contentfulClient.getEntries<Post>({
+  content_type: "post",
+  limit: 1,
+})
+
+const entries = await contentfulClient.getEntries<Post>({
+  content_type: "post",
+  skip: 1,
+  limit: 2,
+})
+---
+
+<Layout title="Lon Sagisawa">
+  <div class="mx-auto max-w-2xl pb-6 lg:pt-6">
+    <h2 class="font-heading font-900 text-3xl mb-2">Lon Sagisawa</h2>
+    <p class="mb-6">
+      日曜大工的Webエンジニア。Jekyllとの出会いでWebページの静的生成に目覚め、静的生成がJamstack/SSGとして飛躍的に進化する中で日々フロントエンド技術を学んでいます。趣味はこのWebサイトに代表されるテック盆栽、F1・eスポーツ観戦、P業(喜多日菜子・周防桃子・桑山千雪)など。
+    </p>
+    <div class="mb-6">
+      <h2 class="font-heading font-900 text-3xl mb-2">最新の記事</h2>
+      <section>
+        <Picture
+          src={latestEntry.items[0].fields.cover.fields.file.url}
+          alt={latestEntry.items[0].fields.cover.fields.title}
+          sizes="100%"
+          widths={[672, 1008, 1344]}
+          formats={["avif", "webp"]}
+          aspectRatio="25:10"
+          class="rounded mb-2 shadow"
+        />
+        <h3
+          class="text-2xl mb-1 font-heading font-900 text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 underline transition"
+        >
+          <a
+            href={dayjs(latestEntry.items[0].fields.date).format("/YYYY/MM/") +
+              latestEntry.items[0].fields.slug}
+            rel="preload">{latestEntry.items[0].fields.title}</a
+          >
+        </h3>
+        <p class="text-sm mb-1 font-bold text-zinc-600 dark:text-zinc-400">
+          {dayjs(latestEntry.items[0].fields.date).format("YYYY年MM月DD日")}
+        </p>
+        <p>{latestEntry.items[0].fields.description}</p>
+      </section>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 my-4">
+        {
+          entries.items.map((item) => (
+            <Card
+              title={item.fields.title}
+              sub={dayjs(item.fields.date).format("YYYY年MM月DD日")}
+              href={
+                dayjs(item.fields.date).format("/YYYY/MM/") + item.fields.slug
+              }
+              rel="prefetch"
+            >
+              <p>{item.fields.description}</p>
+            </Card>
+          ))
+        }
+      </div>
+
+      <Card href="/blog" title="→ すべての記事" rel="prefetch" />
+    </div>
+
+    <h2 class="font-heading font-900 text-3xl mb-2">制作物</h2>
+    <Work />
+  </div>
+</Layout>

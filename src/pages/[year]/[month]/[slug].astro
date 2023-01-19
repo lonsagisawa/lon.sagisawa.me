@@ -1,0 +1,104 @@
+---
+import Layout from "../../../layouts/Layout.astro"
+import Card from "../../../components/Card.astro"
+import { contentfulClient } from "../../../lib/contentful"
+import type { Post } from "../../../lib/contentful"
+import dayjs from "dayjs"
+import { unified } from "unified"
+import remarkParse from "remark-parse"
+import remarkGfm from "remark-gfm"
+import remarkRehype from "remark-rehype"
+import rehypeStringify from "rehype-stringify"
+import rehypePrettyCode from "rehype-pretty-code"
+import ctpMacchiato from "../../../lib/catppuccin/macchiato.json"
+import { Picture } from "@astrojs/image/components"
+
+export const getStaticPaths = async () => {
+  const entries = await contentfulClient.getEntries<Post>({
+    content_type: "post",
+  })
+
+  const mdToHTML = async (md: string) => {
+    const parsed = await unified()
+      .use(remarkParse)
+      .use(remarkGfm)
+      .use(remarkRehype)
+      // @ts-ignore
+      .use(rehypePrettyCode, {
+        theme: ctpMacchiato,
+        keepBackground: true,
+      })
+      .use(rehypeStringify)
+      .process(md)
+
+    return String(parsed)
+  }
+
+  const pages = entries.items.map((item, index) => ({
+    params: {
+      year: dayjs(item.fields.date).format("YYYY"),
+      month: dayjs(item.fields.date).format("MM"),
+      slug: item.fields.slug,
+    },
+    props: {
+      title: item.fields.title,
+      date: item.fields.date,
+      cover: item.fields.cover.fields,
+      body: mdToHTML(item.fields.body),
+      prev: entries.items[index - 1]?.fields,
+      next: entries.items[index + 1]?.fields,
+    },
+  }))
+
+  return pages
+}
+
+const { title, body, date, cover, prev, next } = Astro.props
+---
+
+<Layout title={title + " | Lon Sagisawa"}>
+  <article class="mx-auto lg:mt-6 max-w-3xl">
+    <Picture
+      src={cover.file.url}
+      alt={cover.title}
+      sizes="100%"
+      widths={[384, 768, 1152, 1536]}
+      formats={["avif", "webp"]}
+      aspectRatio="25:10"
+      class="mb-4 rounded shadow-lg"
+    />
+    <h2 class="text-zinc-700 dark:text-zinc-300 text-3xl font-900 font-heading">
+      {title}
+    </h2>
+    <p class="text-zinc-600 dark:text-zinc-400 font-700">
+      {dayjs(date).format("YYYY年MM月DD日")}
+    </p>
+    <div class="mx-auto prose prose-zinc dark:prose-invert" set:html={body} />
+  </article>
+  <nav class="mx-auto my-8 max-w-3xl grid grid-cols-1 lg:grid-cols-2 gap-4">
+    {
+      prev ? (
+        <Card
+          title={prev.title}
+          href={dayjs(prev.date).format("/YYYY/MM/") + prev.slug}
+          rel="preload"
+          sub="前の記事"
+        />
+      ) : (
+        <Card sub="最新の記事です。" />
+      )
+    }
+    {
+      next ? (
+        <Card
+          title={next.title}
+          href={dayjs(next.date).format("/YYYY/MM/") + next.slug}
+          rel="preload"
+          sub="次の記事"
+        />
+      ) : (
+        <Card sub="次の記事はありません。" />
+      )
+    }
+  </nav>
+</Layout>

@@ -1,0 +1,13 @@
+---
+const { bgColor, textColor } = Astro.props
+---
+
+<span class="text-xs font-bold rounded-full px-2 py-0.25 inline-block"
+  ><slot /></span
+>
+<style define:vars={{ bgColor, textColor }}>
+  span {
+    background-color: var(--bgColor);
+    color: var(--textColor);
+  }
+</style>
