@@ -65,7 +65,7 @@ const { title, body, date, cover, prev, next } = Astro.props
       widths={[384, 768, 1152, 1536]}
       formats={["avif", "webp"]}
       aspectRatio="25:10"
-      class="mb-4 rounded shadow-lg"
+      class="cover mb-4 rounded shadow-lg"
     />
     <h2 class="text-zinc-700 dark:text-zinc-300 text-3xl font-900 font-heading">
       {title}
@@ -102,3 +102,9 @@ const { title, body, date, cover, prev, next } = Astro.props
     }
   </nav>
 </Layout>
+
+<style>
+  .cover {
+    aspect-ratio: 25/10;
+  }
+</style>
