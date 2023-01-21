@@ -5,6 +5,7 @@ import UnoCSS from "@unocss/astro"
 import presetUno from "@unocss/preset-uno"
 import presetTypography from "@unocss/preset-typography"
 import presetWebFonts from "@unocss/preset-web-fonts"
+import presetIcons from "@unocss/preset-icons"
 
 // https://astro.build/config
 import image from "@astrojs/image"
@@ -31,6 +32,7 @@ export default defineConfig({
             heading: ["Montserrat", "LINE Seed JP", "sans-serif"],
           },
         }),
+        presetIcons(),
       ],
     }),
   ],
