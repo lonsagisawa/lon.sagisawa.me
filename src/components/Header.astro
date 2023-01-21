@@ -15,7 +15,7 @@ import logoWhite from "../assets/logo_white.png"
         sizes="64px"
         formats={["avif", "webp"]}
         alt=""
-        class="block dark:hidden"
+        class="logo block dark:hidden"
       />
       <Picture
         src={logoWhite}
@@ -23,7 +23,7 @@ import logoWhite from "../assets/logo_white.png"
         sizes="64px"
         formats={["avif", "webp"]}
         alt=""
-        class="hidden dark:block"
+        class="logo hidden dark:block"
       />
     </a>
     <a href="/" rel="prefetch"
@@ -39,5 +39,8 @@ import logoWhite from "../assets/logo_white.png"
 <style>
   header {
     border-top: 0.5rem solid #f4d059;
+  }
+  .logo {
+    width: 64px;
   }
 </style>
