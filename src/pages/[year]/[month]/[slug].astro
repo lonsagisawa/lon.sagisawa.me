@@ -66,6 +66,7 @@ const { title, body, date, cover, prev, next } = Astro.props
       formats={["avif", "webp"]}
       aspectRatio="25:10"
       class="cover mb-4 rounded-lg shadow-lg"
+      loading="eager"
     />
     <h2 class="text-zinc-700 dark:text-zinc-300 text-3xl font-900 font-heading">
       {title}
