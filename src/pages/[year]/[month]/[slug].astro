@@ -43,6 +43,7 @@ export const getStaticPaths = async () => {
     props: {
       title: item.fields.title,
       date: item.fields.date,
+      description: item.fields.description,
       cover: item.fields.cover.fields,
       body: mdToHTML(item.fields.body),
       prev: entries.items[index - 1]?.fields,
@@ -53,10 +54,10 @@ export const getStaticPaths = async () => {
   return pages
 }
 
-const { title, body, date, cover, prev, next } = Astro.props
+const { title, body, date, description, cover, prev, next } = Astro.props
 ---
 
-<Layout title={title + " | Lon Sagisawa"}>
+<Layout title={title + " | Lon Sagisawa"} description={description}>
   <article class="mx-auto lg:mt-6 max-w-3xl">
     <Picture
       src={cover.file.url}
