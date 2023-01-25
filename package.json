@@ -30,8 +30,8 @@
   "devDependencies": {
     "@iconify-json/fa6-brands": "^1.1.8",
     "@types/node": "^18.11.18",
-    "@typescript-eslint/eslint-plugin": "^5.48.1",
-    "@typescript-eslint/parser": "^5.48.1",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
     "@unocss/astro": "^0.48.4",
     "@unocss/preset-icons": "^0.48.4",
     "@unocss/preset-typography": "^0.48.4",
