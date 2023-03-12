@@ -11,8 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.15.1",
-    "@astrojs/prefetch": "^0.1.2",
+    "@astrojs/image": "^0.16.0",
+    "@astrojs/prefetch": "^0.2.0",
     "@fontsource/ibm-plex-mono": "^4.5.13",
     "@fontsource/montserrat": "^4.5.14",
     "@fontsource/open-sans": "^4.5.14",
@@ -40,7 +40,7 @@
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-standard-with-typescript": "^34.0.0",
-    "eslint-plugin-astro": "^0.23.0",
+    "eslint-plugin-astro": "^0.24.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-promise": "^6.1.1",
