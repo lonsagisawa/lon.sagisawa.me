@@ -10,7 +10,7 @@ const entries = await contentfulClient.getEntries<Post>({
 ---
 
 <Layout title="すべての記事 | Lon Sagisawa">
-  <div class="grid grid-cols-1 gap-4 mx-auto lg:mt-6 max-w-3xl">
+  <div class="grid grid-cols-1 gap-4 mx-auto max-w-3xl">
     <h2 class="text-2xl font-bold">すべての記事</h2>
     {
       entries.items.map((item) => (
