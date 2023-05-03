@@ -60,7 +60,7 @@ const { title, body, date, description, cover, prev, next } = Astro.props
 <Layout title={title + " | Lon Sagisawa"} description={description}>
   <article class="mx-auto max-w-3xl">
     <Picture
-      src={cover.file.url}
+      src={`https://${cover.file.url}`}
       alt={cover.title}
       sizes="100%"
       widths={[384, 768, 1152, 1536]}

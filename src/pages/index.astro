@@ -31,7 +31,7 @@ const entries = await contentfulClient.getEntries<Post>({
       <h2 class="font-heading font-900 text-3xl mb-2">最新の記事</h2>
       <section>
         <Picture
-          src={latestEntry.items[0].fields.cover.fields.file.url}
+          src={`https://${latestEntry.items[0].fields.cover.fields.file.url}`}
           alt={latestEntry.items[0].fields.cover.fields.title}
           sizes="100%"
           widths={[672, 1008, 1344]}
