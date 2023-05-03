@@ -34,7 +34,7 @@
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@unocss/astro": "^0.50.6",
-    "@unocss/preset-icons": "^0.50.6",
+    "@unocss/preset-icons": "^0.51.0",
     "@unocss/preset-typography": "^0.50.6",
     "@unocss/preset-uno": "^0.50.6",
     "@unocss/preset-web-fonts": "^0.50.6",
