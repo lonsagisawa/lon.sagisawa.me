@@ -17,7 +17,7 @@
     "@fontsource/montserrat": "^4.5.14",
     "@fontsource/open-sans": "^4.5.14",
     "astro": "^2.1.9",
-    "contentful": "^9.3.5",
+    "contentful": "^10.1.4",
     "dayjs": "^1.11.7",
     "rehype-pretty-code": "^0.9.4",
     "rehype-stringify": "^9.0.3",
