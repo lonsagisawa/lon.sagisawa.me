@@ -19,7 +19,7 @@
     "astro": "^2.3.4",
     "contentful": "^10.1.4",
     "dayjs": "^1.11.7",
-    "rehype-pretty-code": "^0.9.5",
+    "rehype-pretty-code": "^0.10.0",
     "rehype-stringify": "^9.0.3",
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
