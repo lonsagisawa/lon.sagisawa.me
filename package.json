@@ -16,7 +16,7 @@
     "@fontsource/ibm-plex-mono": "^5.0.0",
     "@fontsource/montserrat": "^5.0.0",
     "@fontsource/open-sans": "^5.0.0",
-    "astro": "^2.3.4",
+    "astro": "^3.0.0",
     "contentful": "^10.1.4",
     "dayjs": "^1.11.7",
     "rehype-pretty-code": "^0.10.0",
