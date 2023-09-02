@@ -4,16 +4,15 @@ import { defineConfig } from "astro/config"
 import UnoCSS from "unocss/astro"
 
 // https://astro.build/config
-import image from "@astrojs/image"
 import prefetch from "@astrojs/prefetch"
 
 // https://astro.build/config
 export default defineConfig({
+  image: {
+    domains: ["images.ctfassets.net"],
+  },
   integrations: [
     prefetch(),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
     UnoCSS({
       injectReset: true,
     }),
