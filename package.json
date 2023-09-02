@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.18.0",
-    "@astrojs/prefetch": "^0.2.1",
+    "@astrojs/prefetch": "^0.4.0",
     "@fontsource/ibm-plex-mono": "^5.0.0",
     "@fontsource/montserrat": "^5.0.0",
     "@fontsource/open-sans": "^5.0.0",
