@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Card from "../components/Card.astro"
-import { contentfulClient, Post } from "../lib/contentful"
+import { contentfulClient } from "../lib/contentful"
+import type { Post } from "../lib/contentful"
 import dayjs from "dayjs"
 
 const entries = await contentfulClient.getEntries<Post>({
