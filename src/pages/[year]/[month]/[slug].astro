@@ -27,6 +27,7 @@ export const getStaticPaths = async () => {
       .use(rehypePrettyCode, {
         theme: ctpMacchiato,
         keepBackground: true,
+        defaultLang: "plaintext"
       })
       .use(rehypeStringify)
       .process(md)
