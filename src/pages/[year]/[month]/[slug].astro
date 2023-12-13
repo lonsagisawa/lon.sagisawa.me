@@ -10,7 +10,7 @@ import remarkGfm from "remark-gfm"
 import remarkRehype from "remark-rehype"
 import rehypeStringify from "rehype-stringify"
 import rehypePrettyCode from "rehype-pretty-code"
-import ctpMacchiato from "../../../lib/catppuccin/macchiato.json"
+import tokyoNight from "../../../lib/tokyo-night/tokyo-night.json"
 import { Picture } from "astro:assets"
 
 export const getStaticPaths = async () => {
@@ -25,7 +25,7 @@ export const getStaticPaths = async () => {
       .use(remarkRehype)
       // @ts-ignore
       .use(rehypePrettyCode, {
-        theme: ctpMacchiato,
+        theme: tokyoNight,
         keepBackground: true,
         defaultLang: "plaintext"
       })
