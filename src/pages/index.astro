@@ -6,6 +6,7 @@ import { Picture } from "astro:assets"
 import { contentfulClient } from "../lib/contentful"
 import type { Post } from "../lib/contentful"
 import dayjs from "dayjs"
+import logo from "../logo.svg"
 
 const latestEntry = await contentfulClient.getEntries<Post>({
   content_type: "post",
@@ -22,14 +23,55 @@ const entries = await contentfulClient.getEntries<Post>({
 <Layout
   title="Lon Sagisawa"
   description="Personal tech blog and portfolio of Lon Sagisawa."
+  skipHeader={true}
 >
   <div class="mx-auto max-w-2xl pb-6">
-    <h2 class="font-heading font-900 text-3xl mb-2">Lon Sagisawa</h2>
-    <p class="mb-6">
-      27歳でエンジニア転職したかけだしWebエンジニア。主にSSG/SPAでフロントエンドを書きますがバックエンドも書けるようになりたい。趣味はこのWebサイトに代表されるテック盆栽、F1・eスポーツ観戦など。元日菜子P、現桃子のお兄ちゃん。
-    </p>
-    <div class="mb-6">
-      <h2 class="font-heading font-900 text-3xl mb-2">最新の記事</h2>
+    <div class="flex flex-col lg:flex-row content-center gap-6 my-18 lg:my-24">
+      <div class="flex flex-row align-center mx-auto">
+        <img src={logo.src} alt="Lon Sagisawa" width="240px" />
+      </div>
+      <div class="mx-6">
+        <h1 class="font-heading text-2xl font-900">Lon Sagisawa</h1>
+        <p>Full-stack Web developer</p>
+        <div>
+          <div>
+            <p class="font-bold">Language</p>
+            <div class="flex flex-row gap-2">
+              <div class="i-devicon-plain-typescript text-2xl"></div>
+              <div class="i-devicon-plain-php text-2xl"></div>
+              <div class="i-devicon-plain-python text-2xl"></div>
+            </div>
+          </div>
+          <div>
+            <p class="font-bold">Frontend</p>
+            <div class="flex flex-row gap-2">
+              <div class="i-fa6-brands-vuejs text-2xl"></div>
+              <div class="i-fa6-brands-react text-2xl"></div>
+            </div>
+          </div>
+          <div>
+            <p class="font-bold">Backend</p>
+            <div class="flex flex-row gap-2">
+              <div class="i-fa6-brands-laravel text-2xl"></div>
+            </div>
+          </div>
+          <div>
+            <p class="font-bold">Infra/Tools</p>
+            <div class="flex flex-row gap-2">
+              <div class="i-fa6-brands-docker text-2xl"></div>
+              <div class="i-fa6-brands-github text-2xl"></div>
+              <div class="i-fa6-brands-debian text-2xl"></div>
+              <div class="i-fa6-brands-ubuntu text-2xl"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12">
+      <div class="flex flex-col lg:flex-row justify-between align-center mb-4">
+        <h2 class="font-heading font-900 text-3xl">最新の記事</h2>
+        <p class="text-zinc-600 dark:text-zinc-400">Articles</p>
+      </div>
       <section>
         <Picture
           src={`https://${latestEntry.items[0].fields.cover.fields.file.url}`}
@@ -75,7 +117,10 @@ const entries = await contentfulClient.getEntries<Post>({
       <Card href="/blog" title="→ すべての記事" rel="prefetch" />
     </div>
 
-    <h2 class="font-heading font-900 text-3xl mb-2">制作物</h2>
+    <div class="flex flex-col lg:flex-row justify-between align-center mb-4">
+      <h2 class="font-heading font-900 text-3xl">制作物</h2>
+      <p class="text-zinc-600 dark:text-zinc-400">Works</p>
+    </div>
     <Work />
   </div>
 </Layout>
