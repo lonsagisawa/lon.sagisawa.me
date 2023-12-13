@@ -24,10 +24,11 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.0.0",
     "sharp": "^0.33.0",
-    "shiki": "^0.14.2",
+    "shikiji": "^0.8.7",
     "unified": "^11.0.0"
   },
   "devDependencies": {
+    "@iconify-json/devicon-plain": "^1.1.30",
     "@iconify-json/fa6-brands": "^1.1.11",
     "@types/node": "^20.10.4",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
