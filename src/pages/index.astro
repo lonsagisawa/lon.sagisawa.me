@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro"
 import Work from "../components/Work.astro"
 import Card from "../components/Card.astro"
-import { Image } from "astro:assets"
+import { Picture } from "astro:assets"
 import { contentfulClient } from "../lib/contentful"
 import type { Post } from "../lib/contentful"
 import dayjs from "dayjs"
@@ -31,11 +31,12 @@ const entries = await contentfulClient.getEntries<Post>({
     <div class="mb-6">
       <h2 class="font-heading font-900 text-3xl mb-2">最新の記事</h2>
       <section>
-        <Image
+        <Picture
           src={`https://${latestEntry.items[0].fields.cover.fields.file.url}`}
           alt={latestEntry.items[0].fields.cover.fields.title}
           width={1344}
           height={538}
+          formats={['avif', 'webp']}
           class="latestCover rounded-lg mb-2 shadow"
           loading="eager"
           />

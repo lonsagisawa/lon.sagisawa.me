@@ -11,7 +11,7 @@ import remarkRehype from "remark-rehype"
 import rehypeStringify from "rehype-stringify"
 import rehypePrettyCode from "rehype-pretty-code"
 import ctpMacchiato from "../../../lib/catppuccin/macchiato.json"
-import { Image } from "astro:assets"
+import { Picture } from "astro:assets"
 
 export const getStaticPaths = async () => {
   const entries = await contentfulClient.getEntries<Post>({
@@ -60,11 +60,12 @@ const { title, body, date, description, cover, prev, next } = Astro.props
 
 <Layout title={title + " | Lon Sagisawa"} description={description}>
   <article class="mx-auto max-w-3xl">
-    <Image
+    <Picture
       src={`https://${cover.file.url}`}
       alt={cover.title}
       width={1536}
       height={614}
+      formats={['avif', 'webp']}
       class="cover rounded-lg mb-4 shadow"
       loading="eager"
     />
