@@ -106,7 +106,6 @@ const entries = await contentfulClient.getEntries<Post>({
               href={
                 dayjs(item.fields.date).format("/YYYY/MM/") + item.fields.slug
               }
-              rel="prefetch"
             >
               <p>{item.fields.description}</p>
             </Card>
@@ -114,7 +113,7 @@ const entries = await contentfulClient.getEntries<Post>({
         }
       </div>
 
-      <Card href="/blog" title="→ すべての記事" rel="prefetch" />
+      <Card href="/blog" title="→ すべての記事" />
     </div>
 
     <div class="flex flex-col lg:flex-row justify-between items-end mb-4">
