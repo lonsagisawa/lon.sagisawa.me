@@ -12,11 +12,11 @@ CONTENTFUL_PREVIEW_TOKEN={Contentful preview token}
 ```
 
 ```shell
-npm i
+pnpm i
 # Development
-npm run dev
+pnpm run dev
 # Build
-npm run build
+pnpm run build
 # Serve
-npm run preview
+pnpm run preview
 ```
