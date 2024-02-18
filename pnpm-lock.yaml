@@ -67,6 +67,9 @@ devDependencies:
   '@typescript-eslint/parser':
     specifier: ^6.5.0
     version: 6.14.0(eslint@8.55.0)(typescript@5.3.3)
+  '@unocss/reset':
+    specifier: ^0.58.5
+    version: 0.58.5
   eslint:
     specifier: ^8.48.0
     version: 8.55.0
@@ -1512,6 +1515,10 @@ packages:
 
   /@unocss/reset@0.58.0:
     resolution: {integrity: sha512-UVZ5kz37JGbwAA06k/gjKYcekcTwi6oIhev1EpTtCvHLL6XYcYqcwb/u4Wjzprd3L3lxDGYXvGdjREGm2u7vbQ==}
+    dev: true
+
+  /@unocss/reset@0.58.5:
+    resolution: {integrity: sha512-2wMrkCj3SSb5hrx9TKs5jZa34QIRkHv9FotbJutAPo7o8hx+XXn56ogzdoUrcFPJZJUx2R2nyOVbSlGMIjtFtw==}
     dev: true
 
   /@unocss/rule-utils@0.58.0:
